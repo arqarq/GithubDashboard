@@ -27,11 +27,11 @@ public class EventsController {
         this.repository = repository;
     }
 
-    @GetMapping("/events/{projectName}")
+    @GetMapping("/events/{repoName}")
     @ResponseBody
 //    public ResponseEntity<RepositoryEvent[]> fetchEvents(@PathVariable String projectName) {
-    public RepositoryEvent[] fetchEvents(@PathVariable String projectName) {
-        GithubProject project = this.repository.findByRepoName(projectName);
+    public RepositoryEvent[] fetchEvents(@PathVariable String repoName) {
+        GithubProject project = this.repository.findByRepoName(repoName);
 //        if (project == null) {
 //            return ResponseEntity.notFound().build();
 //        }
@@ -44,20 +44,19 @@ public class EventsController {
 //                .body(response.getBody());
     }
 
-/*    @GetMapping("/")
+    @GetMapping("/admin")
     public String dashboard(Model model) {
-        List<DashboardEntry> entries = StreamSupport
-                .stream(this.repository.findAll().spliterator(), true)
+        Iterable<GithubProject> projects = this.repository.findAll();
+        List<DashboardEntry> entries = StreamSupport.stream(projects.spliterator(), true)
                 .map(p -> new DashboardEntry(p, githubClient.fetchEventsList(p.getOrgName(), p.getRepoName())))
                 .collect(Collectors.toList());
         model.addAttribute("entries", entries);
         return "dashboard";
     }
 
-    @GetMapping("/admin")
+    @GetMapping("/")
     public String admin(Model model) {
         model.addAttribute("projects", repository.findAll());
         return "admin";
-    }*/
-
+    }
 }

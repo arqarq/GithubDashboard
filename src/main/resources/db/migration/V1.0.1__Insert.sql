@@ -6,3 +6,5 @@ INSERT INTO GITHUB_PROJECT(ORG_NAME,REPO_NAME) values ('arqarq','vendingMachine'
 INSERT INTO GITHUB_PROJECT(ORG_NAME,REPO_NAME) values ('arqarq','book-app');
 INSERT INTO GITHUB_PROJECT(ORG_NAME,REPO_NAME) values ('arqarq','javaktw9-designpatterns');
 INSERT INTO GITHUB_PROJECT(ORG_NAME,REPO_NAME) values ('arqarq','zadania');
+INSERT INTO GITHUB_PROJECT(ORG_NAME,REPO_NAME) values ('arqarq','immutability');
+INSERT INTO GITHUB_PROJECT(ORG_NAME,REPO_NAME) values ('arqarq','jvm');

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Github Dashboard</title>
+
+    <link data-th-href="@{/webjars/bulma/0.7.2/css/bulma.css}" rel="stylesheet">
+    <link rel="stylesheet" data-th-href="@{/webjars/font-awesome/4.7.0/css/font-awesome.min.css}"/>
+    <script data-th-src="@{/webjars/timeago.js/3.0.0/dist/timeago.js}"></script>
+</head>
+<body>
+<section class="hero is-primary is-bold">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                <i class="fa fa-github-square" aria-hidden="true"></i>&nbsp;arqarq's Github Dashboard
+            </h1>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <form>
+        <div data-th-each="project : ${projects}" class="field is-horizontal is-grouped">
+            <div class="field-body">
+                <div class="field">
+                    <p class="control is-expanded" style="background-color:powderblue;">
+                        <a data-th-href="@{|https://www.github.com/${project.orgName}/${project.repoName}|}"
+                           th:text="${project.repoName}" target="_blank"></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
+</body>
+</html>
